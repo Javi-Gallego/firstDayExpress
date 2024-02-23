@@ -17,10 +17,12 @@ export const createRole = (req: Request, res: Response) => {
     
     //recuperar la info a través del body
     console.log(req.body)
-    
-    //recuperar parámetro de la ruta
-   // req.params.id
-    //console.log(req.params.id)
+
+    const { name, email, id } = req.body
+
+    console.log(name)
+    console.log(email)
+    console.log(id)
 
     res.status(201).json(
         {

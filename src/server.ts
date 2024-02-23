@@ -30,8 +30,8 @@ app.delete("/roles/:id", deleteRole)
 //users routes
 app.get("/users", getUsers)
 app.post("/users", createUser)
-app.put("/users", updateUser)
-app.delete("/users", deleteUser)
+app.put("/users/:id", updateUser)
+app.delete("/users/:id", deleteUser)
 
 //Activa la app para que este en escucha en el puerto determinado
 app.listen(PORT, () => {
