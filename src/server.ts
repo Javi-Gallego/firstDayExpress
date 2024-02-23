@@ -1,7 +1,8 @@
 
 import express, { Application } from 'express'
 import dotenv from 'dotenv'
-import { getRoles } from '../controllers/roleController'
+import { createRole, deleteRole, getRoles, updateRole } from '../controllers/roleController'
+import { deleteUser, getUsers, postUser, updateUser } from '../controllers/userController'
 
 dotenv.config()
 
@@ -20,8 +21,17 @@ app.get("/healthy", (req, res) => {
 
 //roles routes
 app.get("/roles", getRoles)
+app.post("/roles", createRole)
+app.put("/roles", updateRole)
+app.delete("/roles", deleteRole)
 
+//users routes
+app.get("/users", getUsers)
+app.post("/users", postUser)
+app.put("/users", updateUser)
+app.delete("/users", deleteUser)
 
+//Activa la app para que este en escucha en el puerto determinado
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 })
