@@ -9,8 +9,8 @@ export const getUsers = (req: Request, res: Response) => {
     )
 }
 
-export const postUser = (req: Request, res: Response) => {
-    res.status(200).json(
+export const createUser = (req: Request, res: Response) => {
+    res.status(201).json(
         {
             success: true,
             message: "User created successfully",

@@ -2,11 +2,13 @@
 import express, { Application } from 'express'
 import dotenv from 'dotenv'
 import { createRole, deleteRole, getRoles, updateRole } from '../controllers/roleController'
-import { deleteUser, getUsers, postUser, updateUser } from '../controllers/userController'
+import { createUser, deleteUser, getUsers, updateUser } from '../controllers/userController'
 
 dotenv.config()
 
 const app:Application = express()
+
+app.use(express.json())
 
 const PORT = process.env.PORT || 4001
 
@@ -22,12 +24,12 @@ app.get("/healthy", (req, res) => {
 //roles routes
 app.get("/roles", getRoles)
 app.post("/roles", createRole)
-app.put("/roles", updateRole)
-app.delete("/roles", deleteRole)
+app.put("/roles/:id", updateRole)
+app.delete("/roles/:id", deleteRole)
 
 //users routes
 app.get("/users", getUsers)
-app.post("/users", postUser)
+app.post("/users", createUser)
 app.put("/users", updateUser)
 app.delete("/users", deleteUser)
 
