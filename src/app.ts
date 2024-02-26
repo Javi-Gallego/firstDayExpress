@@ -12,7 +12,6 @@ import {
   getUsers,
   updateUser,
 } from "./controllers/userController";
-import { AppDataSource } from "./database/db";
 
 export const app: Application = express();
 
