@@ -1,10 +1,8 @@
 
 import express, { Application } from 'express'
-import dotenv from 'dotenv'
-import { createRole, deleteRole, getRoles, updateRole } from '../controllers/roleController'
-import { createUser, deleteUser, getUsers, updateUser } from '../controllers/userController'
-
-dotenv.config()
+import 'dotenv/config'
+import { createRole, deleteRole, getRoles, updateRole } from './controllers/roleController'
+import { createUser, deleteUser, getUsers, updateUser } from './controllers/userController'
 
 const app:Application = express()
 
