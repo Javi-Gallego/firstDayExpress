@@ -8,7 +8,7 @@
     "dev": "nodemon ./src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "run-migrations": "typeorm-ts-node-commonjs migration:run -d ./src/database/db.ts", 
-    "revert-migrations": "typeorm-ts-node-commonjs migration:reverse -d ./src/database/db.ts"
+    "revert-migrations": "typeorm-ts-node-commonjs migration:revert -d ./src/database/db.ts"
   },
   "author": "",
   "license": "ISC",
