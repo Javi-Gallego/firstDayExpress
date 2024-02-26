@@ -1,37 +1,15 @@
 
-import express, { Application } from 'express'
 import 'dotenv/config'
-import { createRole, deleteRole, getRoles, updateRole } from './controllers/roleController'
-import { createUser, deleteUser, getUsers, updateUser } from './controllers/userController'
+import { app } from './app'
 
-const app:Application = express()
-
-app.use(express.json())
-
+//variable que se pone usando dontenv y el archivo .env, si no encuentra el valor le pone por defecto 4001
 const PORT = process.env.PORT || 4001
 
-app.get("/healthy", (req, res) => {
-    res.status(200).json(
-        {
-            success: true,
-            message: "Server is healthy"
-        }
-    );
-})
+const startServer = () => {
+    //Activa la app para que este en escucha en el puerto determinado
+    app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
+    })
+}
 
-//roles routes
-app.get("/roles", getRoles)
-app.post("/roles", createRole)
-app.put("/roles/:id", updateRole)
-app.delete("/roles/:id", deleteRole)
-
-//users routes
-app.get("/users", getUsers)
-app.post("/users", createUser)
-app.put("/users/:id", updateUser)
-app.delete("/users/:id", deleteUser)
-
-//Activa la app para que este en escucha en el puerto determinado
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-})
+startServer()
