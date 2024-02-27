@@ -2,6 +2,7 @@ import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGe
 import { Author } from "./Author"
 import { join } from "path"
 import { Loan } from "./Loan"
+import { Favorite } from "./Favorite"
 
 @Entity("books")
 
@@ -32,4 +33,8 @@ export class Book extends BaseEntity{
     @OneToMany(() => Loan, loan => loan.books)
     @JoinColumn({ name: "loan_id" })
     loans!: Loan[]
+
+    @OneToMany(() => Favorite, favorite => favorite.book)
+    @JoinColumn({ name: "favorite_id" })
+    favorites!: Favorite[]
 }
