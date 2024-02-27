@@ -1,4 +1,6 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { User } from "./User"
+import { Book } from "./Book"
 
 @Entity("loans")
 export class Loan extends BaseEntity{
@@ -21,4 +23,11 @@ export class Loan extends BaseEntity{
     @Column()
     return_date!: Date
 
+    @ManyToOne(() => User, user => user.loans)
+    @JoinColumn({ name: "user_id" })
+    users!: User
+
+    @ManyToOne(() => Book, book => book.loans)
+    @JoinColumn({ name: "book_id" })
+    books!: Book
 }

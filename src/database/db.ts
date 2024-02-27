@@ -12,6 +12,8 @@ import { Role } from "../models/Role"
 import { User } from "../models/User"
 import { Author } from "../models/Author"
 import { Book } from "../models/Book"
+import { Loan } from "../models/Loan"
+import { Favorite } from "../models/Favorite"
 
 export const AppDataSource = new DataSource ({
     type: "mysql",
@@ -20,7 +22,7 @@ export const AppDataSource = new DataSource ({
     username: process.env.DB_USER || "root",
     password: process.env.DB_PASSWORD || "",
     database: process.env.DB_DATABASE || "test",
-    entities: [Role, User, Author, Book],
+    entities: [Role, User, Author, Book, Loan, Favorite],
     migrations: [
         Roles1708945160731,
         Users1708948565273,

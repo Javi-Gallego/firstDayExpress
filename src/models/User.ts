@@ -1,6 +1,7 @@
 
-import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm"
 import { Role } from "./Role"
+import { Loan } from "./Loan"
 
 @Entity("users")
 export class User extends BaseEntity{
@@ -32,4 +33,8 @@ export class User extends BaseEntity{
     @ManyToOne(() => Role, role => role.users)
     @JoinColumn({ name: "role_id" })
     role!: Role
+
+    @OneToMany(() => Loan, loan => loan.users)
+    @JoinColumn({ name: "loan_id" })
+    loans!: Loan[]
 }
