@@ -1,4 +1,5 @@
 import { Request, Response } from "express"
+import { Role } from "../models/Role"
 
 export const getRoles = (req: Request, res: Response) => {
     
@@ -13,23 +14,44 @@ export const getRoles = (req: Request, res: Response) => {
     )
 }
 
-export const createRole = (req: Request, res: Response) => {
-    
-    //recuperar la info a través del body
-    console.log(req.body)
+export const createRole = async (req: Request, res: Response) => {
 
-    const { name, email, id } = req.body
-
-    console.log(name)
-    console.log(email)
-    console.log(id)
-
-    res.status(201).json(
-        {
-            success: true,
-            message: "Role created successfully",
+    try {
+        //recuperar la info a través del body
+        console.log(req.body)
+        
+        const { name } = req.body
+        
+        if(name.length > 50) {
+            return res.status(400).json(
+                {
+                    success: false,
+                    message: "Role name must be under 50 characters long",
+                }
+            )
         }
-    )
+    
+        const newRole = await Role.create({
+            name: name
+        }).save()
+    
+        res.status(201).json(
+            {
+                success: true,
+                message: "Role created successfully",
+                data: newRole
+            }
+        )
+        
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Can't create role",
+            error: error
+        })
+    }
+    
+    
 }
 
 export const updateRole = (req: Request, res: Response) => {

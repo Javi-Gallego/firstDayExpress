@@ -8,6 +8,10 @@ import { Books1708949730694 } from "./migrations/1708949730694-books"
 import { Loans1708949738502 } from "./migrations/1708949738502-loans"
 import { Favorite_books1708949747619 } from "./migrations/1708949747619-favorite_books"
 import { AddIsActiveColumnToUsers1709024951852 } from "./migrations/1709024951852-add_is_active_column_to_users"
+import { Role } from "../models/Role"
+import { User } from "../models/User"
+import { Author } from "../models/Author"
+import { Book } from "../models/Book"
 
 export const AppDataSource = new DataSource ({
     type: "mysql",
@@ -16,7 +20,7 @@ export const AppDataSource = new DataSource ({
     username: process.env.DB_USER || "root",
     password: process.env.DB_PASSWORD || "",
     database: process.env.DB_DATABASE || "test",
-    entities: [],
+    entities: [Role, User, Author, Book],
     migrations: [
         Roles1708945160731,
         Users1708948565273,
