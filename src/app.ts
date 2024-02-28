@@ -30,13 +30,13 @@ app.get("/healthy", (req, res) => {
 app.post("/api/register", register);
 
 //roles routes
-app.get("/roles", getRoles);
-app.post("/roles", createRole);
-app.put("/roles/:id", updateRole);
-app.delete("/roles/:id", deleteRole);
+app.get("/api/roles", getRoles);
+app.post("/api/roles", createRole);
+app.put("/api/roles/:id", updateRole);
+app.delete("/api/roles/:id", deleteRole);
 
 //users routes
-app.get("/users", getUsers);
-app.post("/users", createUser);
-app.put("/users/:id", updateUser);
-app.delete("/users/:id", deleteUser);
+app.get("/api/users", getUsers);
+app.post("/api/users", createUser);
+app.put("/api/users/:id", updateUser);
+app.delete("/api/users/:id", deleteUser);
