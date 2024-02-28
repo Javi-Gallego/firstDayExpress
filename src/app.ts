@@ -7,10 +7,9 @@ import {
   updateRole,
 } from "./controllers/roleController";
 import {
-  deleteUser,
+  deleteUserById,
   getUserById,
   getUsers,
-  updateUser,
   updateUserById,
 } from "./controllers/userController";
 import { register } from "./controllers/authController";
@@ -40,4 +39,4 @@ app.delete("/api/roles/:id", deleteRole);
 app.get("/api/users", getUsers);
 app.get("/api/users/:id", getUserById);
 app.put("/api/users/:id", updateUserById);
-app.delete("/api/users/:id", deleteUser);
+app.delete("/api/users/:id", deleteUserById);
