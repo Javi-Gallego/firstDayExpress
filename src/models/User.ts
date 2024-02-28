@@ -22,8 +22,8 @@ export class User extends BaseEntity{
     @Column({ name: "is_active" })
     isActive!: boolean
 
-    /*@Column({ name: "role_id" })
-    roleId!: number*/
+    @Column({ name: "role_id" })
+    roleId!: number
 
     @Column({ name: "created_at" })
     createdAt!: Date
