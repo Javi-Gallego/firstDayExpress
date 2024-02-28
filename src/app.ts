@@ -12,6 +12,7 @@ import {
   getUsers,
   updateUser,
 } from "./controllers/userController";
+import { register } from "./controllers/authController";
 
 export const app: Application = express();
 
@@ -24,6 +25,9 @@ app.get("/healthy", (req, res) => {
     message: "Server is healthy",
   });
 });
+
+//authentication routes
+app.post("/api/register", register);
 
 //roles routes
 app.get("/roles", getRoles);

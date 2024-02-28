@@ -40,7 +40,8 @@ export class Users1708948565273 implements MigrationInterface {
                     },
                     {
                         name: "role_id",
-                        type: "int"
+                        type: "int",
+                        default: 2
                     },
                     {
                         name: "created_at",
