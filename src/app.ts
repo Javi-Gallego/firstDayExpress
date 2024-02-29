@@ -13,6 +13,7 @@ import {
   updateUserById,
 } from "./controllers/userController";
 import { login, register } from "./controllers/authController";
+import { auth } from "./middlewares/auth";
 
 export const app: Application = express();
 
@@ -37,7 +38,7 @@ app.put("/api/roles/:id", updateRole);
 app.delete("/api/roles/:id", deleteRole);
 
 //users routes
-app.get("/api/users", getUsers);
+app.get("/api/users", auth, getUsers);
 app.get("/api/users/:id", getUserById);
 app.put("/api/users/:id", updateUserById);
 app.delete("/api/users/:id", deleteUserById);
