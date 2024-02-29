@@ -12,7 +12,7 @@ import {
   getUsers,
   updateUserById,
 } from "./controllers/userController";
-import { register } from "./controllers/authController";
+import { login, register } from "./controllers/authController";
 
 export const app: Application = express();
 
@@ -28,6 +28,7 @@ app.get("/healthy", (req, res) => {
 
 //authentication routes
 app.post("/api/register", register);
+app.post("/api/login", login);
 
 //roles routes
 app.get("/api/roles", getRoles);
