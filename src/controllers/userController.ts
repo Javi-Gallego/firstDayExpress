@@ -4,6 +4,7 @@ import { Like } from "typeorm"
 
 export const getUsers = async (req: Request, res: Response) => {
     try {
+
         const users = await User.find({
             select: {
                 id: true,

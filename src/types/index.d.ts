@@ -2,7 +2,7 @@
 export type TokenData = {
     userId: number
     roleName: string
-  }
+}
   
 declare global {
     // Express
@@ -11,4 +11,4 @@ declare global {
             tokenData: TokenData;
         }
     }
-  }
+}
