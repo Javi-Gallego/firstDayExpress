@@ -49,9 +49,7 @@ export const createRole = async (req: Request, res: Response) => {
             message: "Can't create role",
             error: error
         })
-    }
-    
-    
+    }   
 }
 
 export const updateRole = (req: Request, res: Response) => {

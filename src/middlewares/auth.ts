@@ -18,6 +18,7 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
         //si no es correcto lanza un throwError y entra al catch
         //si es correcto devuelve el valor decodificado
         const decoded = jwt.verify(token, process.env.JWT_SECRET as string)
+        
         console.log(decoded)
         
         //metemos dentro del campo tokenData el valor decodificado
